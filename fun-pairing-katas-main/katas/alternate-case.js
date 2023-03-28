@@ -6,6 +6,22 @@
   'hello world' would become 'HeLlO wOrLd'
 */
 
-function alternateCase() {}
+function alternateCase(string) {
+  const altCase = 'upper';
+  const newString = ''
+  for (let char = 0; char < string.length; char++){
+    switch (char) {
+      case char === /\s/:
+        newString += char
+				break;
+      case char === /\w/:
+        altCase === 'upper' ?
+          newString += char.toUpperCase() :
+          newString += char.toLowerCase();
+				break;
+		}
+  }
+  return newString
+}
 
 module.exports = alternateCase;
