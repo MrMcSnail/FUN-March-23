@@ -1,9 +1,17 @@
-/*
-  the areOrdered function should take an array of numbers as an input.
-  It should return true if all the numbers are in ascending order and false if they are not.
-  An empty array should return false.
-*/
-
-function areOrdered() {}
-
+function areOrdered(numbers) {
+  if (numbers.length === 1) {
+    return true;
+  } else if (numbers.length>1) {
+    for (let i = 1; i < numbers.length; i++) {
+      const currentNum = numbers[i];
+      const previousNum = numbers[i-1];
+      if (currentNum < previousNum) {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    return false;
+  }
+}
 module.exports = areOrdered;
