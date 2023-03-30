@@ -1,11 +1,14 @@
-/*
-  The function checkUsernames should take an array of usernames and return true if they are all valid and false if any are not valid.
-  A valid username:
-  - is at least 5 characters long
-  - may only contain lowercase letters, numbers and underscores
-  - is no longer than 20 characters
-*/
+function checkUsernames(usernames) {
+  let allValidUsernames = true;
 
-function checkUsernames() {}
+  usernames.forEach((username) => {
+    const validUsernameMatcher = /^[a-z0-9_]{5,20}$/;
+    const isValid = validUsernameMatcher.test(username);
+    if (!isValid) {
+      allValidUsernames = false;
+    }
+  });
+  return allValidUsernames;
+}
 
 module.exports = checkUsernames;
