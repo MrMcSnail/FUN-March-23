@@ -6,12 +6,13 @@
   It should work up to and including the year 9,999 (the '100th' century)
 */
 
+// test full range of values
+// remember TDD means the tests are the prime citizens, solution is secondary
+// boundaries and edge cases
+
 const getCentury = require('../katas/get-century');
 
 describe('getCentury', () => {
-  test('should return a string', () => {
-    expect(getCentury(1999)).toEqual(expect.any(String));
-  });
   test('should return a century in cardinal shorthand', () => {
     expect(getCentury(1999)).toEqual(expect.stringMatching(/^\d+(?:th|st|nd|rd)$/));
   });

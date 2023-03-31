@@ -7,10 +7,7 @@ const checkUsernames = require('../katas/check-usernames');
   - is no longer than 20 characters
 */
 
-describe('checkUsernames', () => {
-  test('should be a function', () => {
-    expect(typeof checkUsernames).toEqual('function');
-  });
+describe('checkUsernames()', () => {
   test('should return a boolean value', () => {
     expect(checkUsernames([])).toEqual(expect.any(Boolean));
   });

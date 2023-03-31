@@ -1,12 +1,59 @@
-/*
-  The function caesarCipher should take a string and a number (n) and return a new string with a Caesar cipher applied. A Caesar cipher replaces each plaintext letter with a different one a fixed number of places up or down the alphabet. N represents the number of shifts up or down the alphabet should be applied. It may be negative or positive.
-  E.g.
-  caesarCipher('hello', 2)
-    --> 'jgnnq'
-  caesarCipher('hello world!', -3)
-    --> 'ebiil tloia!'
-*/
+function caesarCipher(plaintext, shift) {
+  const alphabetLookup = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
 
-function caesarCipher() {}
+  const plaintextChars = plaintext.split('');
+
+  const cypherChars = plaintextChars.map((character) => {
+    const isAlphabetic = /[a-z]/i.test(character);
+
+    if (isAlphabetic) {
+      const charCode = alphabetLookup.findIndex(
+          (letter) => letter === character,
+      );
+
+      const shiftedCode =
+        charCode + shift > 25 ?
+          charCode + shift - 26 :
+          charCode + shift;
+
+      const cypherChar = alphabetLookup.at(shiftedCode);
+      console.table({ character, charCode, shiftedCode, cypherChar });
+      return cypherChar;
+    } else {
+      return character;
+    }
+  });
+  console.log('cypherChars: ', cypherChars);
+
+  const cyphertext = cypherChars.join('');
+  return cyphertext;
+}
 
 module.exports = caesarCipher;
