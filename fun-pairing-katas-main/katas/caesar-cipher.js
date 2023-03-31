@@ -28,8 +28,8 @@ function caesarCipher(plaintext, shift) {
     'z',
   ];
   const alphabetLength = alphabetLookup.length;
-
-  const plaintextChars = plaintext.split('');
+  const lowercaseText = plaintext.toLowerCase();
+  const plaintextChars = lowercaseText.split('');
 
   const cipherChar = (character) => {
     const isAlphabetic = /[a-z]/i.test(character);
