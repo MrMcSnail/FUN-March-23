@@ -27,10 +27,11 @@ function caesarCipher(plaintext, shift) {
     'y',
     'z',
   ];
+  const alphabetLength = alphabetLookup.length;
 
   const plaintextChars = plaintext.split('');
 
-  const cypherChars = plaintextChars.map((character) => {
+  const cipherChar = (character) => {
     const isAlphabetic = /[a-z]/i.test(character);
 
     if (isAlphabetic) {
@@ -39,20 +40,21 @@ function caesarCipher(plaintext, shift) {
       );
 
       const shiftedCode =
-        charCode + shift > 25 ?
-          charCode + shift - 26 :
-          charCode + shift;
+      charCode + shift > alphabetLength - 1 ?
+        charCode + shift - alphabetLength :
+        charCode + shift;
 
       const cypherChar = alphabetLookup.at(shiftedCode);
-      console.table({ character, charCode, shiftedCode, cypherChar });
+
       return cypherChar;
     } else {
       return character;
     }
-  });
-  console.log('cypherChars: ', cypherChars);
+  };
 
-  const cyphertext = cypherChars.join('');
+  const cipheredChars = plaintextChars.map(cipherChar);
+
+  const cyphertext = cipheredChars.join('');
   return cyphertext;
 }
 
