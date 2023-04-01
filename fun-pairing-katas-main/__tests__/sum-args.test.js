@@ -13,4 +13,5 @@ describe('sumArgs()', () => {
   test('should return to sum of many arguments', () => {
     expect(sumArgs(1, 2, 3, 4, 5)).toEqual(15);
   });
+  // think of edge cases?
 });
