@@ -2,7 +2,10 @@
 
 function sumArgs(...args) {
   return args.reduce((accumulator, currentVal) => {
-    return accumulator + currentVal;
+    if (typeof currentVal === 'number') {
+      accumulator += currentVal;
+    }
+    return accumulator;
   }, 0);
 }
 

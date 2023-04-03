@@ -24,14 +24,14 @@ You are testing **'interfaces not implementations'** - you care only about what 
 
 ### Section 1
 
-- sumDigits (_we've provided some ideas for tests for this one_)
-- countVeg
-- alternateCase
-- getCentury
-- areOrdered
-- checkUsernames
-- maxAndMin
-- sumArgs
+- sumDigits (_we've provided some ideas for tests for this one_)√
+- countVeg√
+- alternateCase√
+- getCentury√
+- areOrdered√
+- checkUsernames√
+- maxAndMin√
+- sumArgs√
 - sumAscii
 - getYearsOfGrowth
 
