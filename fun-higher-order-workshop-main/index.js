@@ -92,14 +92,6 @@ function from(start) {
     return start - 1;
   };
 }
-// 14. Write a `to` function that takes a generator and an end value, and returns a generator that will produce numbers up to that limit (not inclusive).
-
-// ```js
-// const index = to(from(1), 3);
-// index(); // 1
-// index(); // 2
-// index(); // undefined
-// ```
 
 function to(generator, end) {
   return function () {
@@ -128,18 +120,14 @@ function element(array, generator) {
     }
   };
 }
-// 18. Write a `collect` function that takes a generator and an array and produces a function that will collect the results in the array by mutating it.
 
-// ```js
-// const array = [];
-// const col = collect(fromTo(0, 2), array);
-// col(); // 0
-// col(); // 1
-// col(); // undefined
-// array; // [0, 1]
-// ```
-
-function collect() {}
+function collect(generator, array) {
+  return () => {
+    const val = generator();
+    array.push(val);
+    return val;
+  };
+}
 // 19. Write a `filter` function that takes a generator and a predicate and produces a generator that produces only the values approved by the predicate.
 
 // ```js
