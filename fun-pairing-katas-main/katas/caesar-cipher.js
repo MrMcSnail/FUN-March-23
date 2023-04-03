@@ -31,7 +31,7 @@ function caesarCipher(plaintext, shift) {
   const lowercaseText = plaintext.toLowerCase();
   const plaintextChars = lowercaseText.split('');
 
-  const cipherChar = (character) => {
+  const cipheredChar = (character) => {
     const isAlphabetic = /[a-z]/i.test(character);
 
     if (isAlphabetic) {
@@ -52,7 +52,7 @@ function caesarCipher(plaintext, shift) {
     }
   };
 
-  const cipheredChars = plaintextChars.map(cipherChar);
+  const cipheredChars = plaintextChars.map(cipheredChar);
 
   const cyphertext = cipheredChars.join('');
   return cyphertext;
