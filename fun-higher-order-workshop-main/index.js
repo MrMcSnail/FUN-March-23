@@ -142,7 +142,13 @@ function collect(generator, array) {
 // fil(); // undefined
 // ```
 
-function filter() {}
+function filter(generator, predicate) {
+  return ()=> {
+    const value = generator();
+    const passesPredicateTest = predicate(value);
+    if (passesPredicateTest) return value;
+  };
+}
 // 20. Write a `concat` function that takes two generators and produces a generator that combines the sequences.
 
 // ```js
