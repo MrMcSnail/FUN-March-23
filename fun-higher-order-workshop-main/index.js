@@ -128,19 +128,6 @@ function collect(generator, array) {
     return val;
   };
 }
-// 19. Write a `filter` function that takes a generator and a predicate and produces a generator that produces only the values approved by the predicate.
-
-// ```js
-// function third(value) {
-//   return value % 3 === 0;
-// }
-// const fil = filter(fromTo(0, 5), third);
-// fil(); // 0
-// fil(): // undefined
-// fil(): // undefined
-// fil(); // 3
-// fil(); // undefined
-// ```
 
 function filter(generator, predicate) {
   return ()=> {
@@ -149,19 +136,14 @@ function filter(generator, predicate) {
     if (passesPredicateTest) return value;
   };
 }
-// 20. Write a `concat` function that takes two generators and produces a generator that combines the sequences.
 
-// ```js
-// const con = concat(fromTo(0, 3), fromTo(0, 2));
-// con(); // 0
-// con(); // 1
-// con(); // 2
-// con(); // 0
-// con(); // 1
-// con(); // undefined
-// ```
-
-function concat() {}
+function concat(gen1, gen2) {
+  return function () {
+    const valueGen1 = gen1();
+    const firstGenComplete = valueGen1 === undefined;
+    return firstGenComplete && gen2 ? gen2() : valueGen1;
+  };
+}
 // 21. Make a function `fibonacciF` that returns a generator that will return consecutive fibonacci numbers starting with the first two arguments.
 
 // ```js
