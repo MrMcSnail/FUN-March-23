@@ -25,7 +25,7 @@ function caesarCipher(plaintext, shift) {
     'w',
     'x',
     'y',
-    'z',
+    'z'
   ];
   const alphabetLength = alphabetLookup.length;
   const lowercaseText = plaintext.toLowerCase();
@@ -36,13 +36,13 @@ function caesarCipher(plaintext, shift) {
 
     if (isAlphabetic) {
       const charCode = alphabetLookup.findIndex(
-          (letter) => letter === character,
+        (letter) => letter === character
       );
 
       const shiftedCode =
-      charCode + shift > alphabetLength - 1 ?
-        charCode + shift - alphabetLength :
-        charCode + shift;
+        charCode + shift > alphabetLength - 1
+          ? charCode + shift - alphabetLength
+          : charCode + shift;
 
       const cypherChar = alphabetLookup.at(shiftedCode);
 
