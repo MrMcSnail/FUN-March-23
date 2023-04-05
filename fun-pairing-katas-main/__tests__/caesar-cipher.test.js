@@ -24,7 +24,8 @@ describe('caesarCipher()', () => {
   });
 
   test('should ignore all string characters except alphabetical in a longer string', () => {
-    const passedVal = 'a1 b\' c_ d!';
+    // eslint-disable-next-line quotes
+    const passedVal = "a1 b' c_ d!";
     const nonLetterMatcher = /\w1\s\w\'\s\w\_\s\w\!/;
 
     const returnedVal = caesarCipher(passedVal, 0);
@@ -78,21 +79,21 @@ describe('caesarCipher()', () => {
 
   test('should shift all string characters in a single word\n\tincluding characters shifting from `a` down through `z` when a negative number is passed in', () => {
     expect(caesarCipher('aardvark', -8)).toEqual('ssjvnsjc');
-  },
-  );
+  });
   test('should be insensitive to capitalisation: returns a lowercase string', () => {
     expect(caesarCipher('FIzz', 10)).toEqual('psjj');
   });
   test('should work on longer strings and sentences', () => {
-    const plaintext = 'If he had anything confidential to say, he wrote it in cipher. That is, by so changing the order of the letters of the alphabet, that not a word could be made out!';
+    const plaintext =
+      'If he had anything confidential to say, he wrote it in cipher. That is, by so changing the order of the letters of the alphabet, that not a word could be made out!';
 
-    const ciphertext = 'wt vs vor obmhvwbu qcbtwrsbhwoz hc gom, vs kfchs wh wb qwdvsf. hvoh wg, pm gc qvobuwbu hvs cfrsf ct hvs zshhsfg ct hvs ozdvopsh, hvoh bch o kcfr qcizr ps aors cih!';
+    const ciphertext =
+      'wt vs vor obmhvwbu qcbtwrsbhwoz hc gom, vs kfchs wh wb qwdvsf. hvoh wg, pm gc qvobuwbu hvs cfrsf ct hvs zshhsfg ct hvs ozdvopsh, hvoh bch o kcfr qcizr ps aors cih!';
 
     expect(caesarCipher(plaintext, 14)).toEqual(ciphertext);
   });
   test('should work on multi-line strings which use backticks', () => {
-    const plaintext =
-`If he had anything confidential to say, 
+    const plaintext = `If he had anything confidential to say, 
 
 he wrote it in cipher.
     
@@ -100,8 +101,7 @@ That is,
     
 by so changing the order of the letters of the alphabet, that not a word could be made out!`;
 
-    const ciphertext =
-`mj li leh ercxlmrk gsrjmhirxmep xs wec, 
+    const ciphertext = `mj li leh ercxlmrk gsrjmhirxmep xs wec, 
 
 li avsxi mx mr gmtliv.
     

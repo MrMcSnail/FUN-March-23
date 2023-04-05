@@ -26,15 +26,14 @@ function increment(num) {
 }
 
 function addF(num) {
-  function add(summand2) {
-    return num + summand2;
-  }
-  return add;
+  return function (summand2) {
+    return add(num, summand2);
+  };
 }
 
-function curry(binaryFunc, ...args) {
-  return function (...secondArgs) {
-    return binaryFunc(...args, ...secondArgs);
+function curry(binaryFunc, arg) {
+  return function (secondArg) {
+    return binaryFunc(arg, secondArg);
   };
 }
 
@@ -130,7 +129,7 @@ function collect(generator, array) {
 }
 
 function filter(generator, predicate) {
-  return ()=> {
+  return () => {
     const value = generator();
     const passesPredicateTest = predicate(value);
     if (passesPredicateTest) return value;
@@ -213,7 +212,7 @@ function revokable(func) {
     },
     invoke(...args) {
       return this.func(...args);
-    },
+    }
   };
 }
 
@@ -243,5 +242,5 @@ module.exports = {
   genSymF,
   genSymFF,
   counter,
-  revokable,
+  revokable
 };
