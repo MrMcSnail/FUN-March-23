@@ -9,6 +9,8 @@ describe('ceasarCipher', () => {
   test('should return a single letter string that has shifted by 1', () => {
     expect(caesarCipher('a', 1)).toEqual('b');
   });
+  // do negative next
+  // test this first vvv
   test('should return a string of equal length to the string that has been passed in', () => {
     const string = 'hello';
     const result = caesarCipher(string);

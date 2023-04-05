@@ -1,6 +1,7 @@
 const caesarCipher = require('../katas/caesar-cipher');
 
-describe.only('caesarCipher', () => {
+describe('caesarCipher', () => {
+  // not needed
   test('should return a string', () => {
     expect(typeof caesarCipher('', 0)).toBe('string');
   });
@@ -25,7 +26,7 @@ describe.only('caesarCipher', () => {
     expect(caesarCipher('test test test test', -1)).toBe('sdrs sdrs sdrs sdrs');
     expect(caesarCipher('hello world!', -3)).toBe('ebiil tloia!');
   });
-
+  //  I think the tests above are really good ^^^^
   test('should work for any number that does not result in a character going above z or below a', () => {
     expect(caesarCipher('TeSt!!!!!', -4)).toBe('paop!!!!!');
     expect(caesarCipher('aaaaaaaaaa', 9)).toBe('jjjjjjjjjj');
@@ -49,4 +50,6 @@ describe.only('caesarCipher', () => {
     expect(caesarCipher('AAAAAAAA', -1)).toBe('zzzzzzzz');
     expect(caesarCipher('CCCCCCCC', -4)).toBe('yyyyyyyy');
   });
+
+  // does it still do this when passed a string with other characters?
 });

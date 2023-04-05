@@ -1,17 +1,15 @@
-
 function caesarCipher(str, num) {
   if (num === 0) {
-    return str;
-    
+    return str; // noice and cleeeen
   } else {
     const charCodes = {
-      a: "a".charCodeAt(0),
-      z: "z".charCodeAt(0),
-      A: "A".charCodeAt(0),
-      Z: "Z".charCodeAt(0),
+      a: 'a'.charCodeAt(0),
+      z: 'z'.charCodeAt(0),
+      A: 'A'.charCodeAt(0),
+      Z: 'Z'.charCodeAt(0)
     };
 
-    let newStr = "";
+    let newStr = '';
 
     for (let i = 0; i < str.length; i++) {
       if (/[a-z]/i.test(str[i])) {
@@ -31,11 +29,12 @@ function caesarCipher(str, num) {
         }
 
         if (newCharCode > highestCharCode) {
+          // i have no idea......
           const remainer = newCharCode % highestCharCode;
           newCharCode = remainer - 1 + lowestCharCode;
-          
         } else if (newCharCode < lowestCharCode) {
           const remainer =
+            // this is always true...
             newCharCode < lowestCharCode - 26
               ? (newCharCode - lowestCharCode) % 26
               : newCharCode - lowestCharCode;
