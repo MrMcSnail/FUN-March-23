@@ -13,10 +13,10 @@ function multiply(multiplier, multiplicand) {
 function increment(num) {
   return add(num, 1);
 }
-
+// Write a function `addF` that adds from two invocations
 function addF(num1) {
   return function (num2) {
-    return add(num1, num2);
+    return num1 + num2;
   };
 }
 

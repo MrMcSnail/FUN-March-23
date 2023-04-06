@@ -1,16 +1,20 @@
 const { add, addF, curry } = require('../index.js');
 
 describe('Functions with multiple invocations', () => {
-  describe('addF', () => {
-    it('returns a function on first invocation', () => {
+  describe.only('addF', () => {
+    it.only('returns a function on first invocation', () => {
       expect(typeof addF(3)).toBe('function');
     });
-    it('returns the total of both invocations', () => {
-      expect(addF(3)(4)).toBe(7);
+    it.only('returns the total of both invocations', () => {
+      const addTo3 = addF(3);
+      const threePlusFour = addTo3(4);
+
+      expect(threePlusFour).toBe(7);
     });
 
-    it('returned function is reusable', () => {
+    it.only('returned function is reusable', () => {
       const add100 = addF(100);
+      console.log('add100 : ', add100.toString());
       expect(add100(5)).toBe(105);
       expect(add100(100)).toBe(200);
       expect(add100(-100)).toBe(0);
