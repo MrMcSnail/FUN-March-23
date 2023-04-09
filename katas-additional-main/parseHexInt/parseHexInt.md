@@ -1,6 +1,6 @@
 # Parse Hexadecimal Integer
 
-In this kata, you need to complete the function `parseHexInt` which takes a hexadecimal number, such as F8, and returns the same number expressed in the decimal numerical sytem.
+In this kata, you need to complete the function `parseHexInt` which takes a hexadecimal number, such as F8, and returns the same number expressed in the decimal numerical system.
 
 To read more about the Hexadecimal numerical system, see some of the following links:
 
