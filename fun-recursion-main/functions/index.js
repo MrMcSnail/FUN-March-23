@@ -27,9 +27,30 @@ module.exports = {
     }
   },
   countSpaces(str) {
-    return;
+    let count = 0;
+
+    const firstCharacter = str[0];
+    const firstCharIsWhitespace = /\s/.test(firstCharacter);
+    const remainingCharacters = str.slice(1, str.length);
+
+    if (str.length > 0) {
+      if (firstCharIsWhitespace) count++;
+      return count + this.countSpaces(remainingCharacters);
+    } else {
+      return 0;
+    }
   },
   sumDigits(n) {
-    return;
+    const digits = n.toString().split('');
+
+    if (digits.length > 1) {
+      const sum = digits.reduce((accumulator, digit) => {
+        const digitValue = Number(digit);
+        return accumulator + digitValue;
+      }, 0);
+      return this.sumDigits(sum);
+    } else {
+      return n;
+    }
   }
 };
