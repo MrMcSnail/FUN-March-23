@@ -52,5 +52,6 @@ module.exports = {
     } else {
       return n;
     }
-  }
+  },
+  fib(n) {}
 };
