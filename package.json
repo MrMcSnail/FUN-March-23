@@ -1,0 +1,23 @@
+{
+  "name": "fun-pokemon-battler",
+  "version": "1.0.0",
+  "description": "For this sprint, head to Northcoder's L2C app:",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrMcSnail/FUN-March-23.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrMcSnail/FUN-March-23/issues"
+  },
+  "homepage": "https://github.com/MrMcSnail/FUN-March-23#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
