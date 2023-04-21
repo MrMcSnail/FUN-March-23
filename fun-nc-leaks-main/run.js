@@ -1,3 +1,3 @@
-const { getPeople } = require('./server');
+const server = require('./server');
 
-getPeople();
+server.scavengeForNCData();
