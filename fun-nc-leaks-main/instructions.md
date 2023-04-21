@@ -1,7 +1,7 @@
-Detective, here are your tasks for the rest of today:
 
 # Introduction
 
+Detective, here are your tasks for the rest of today:
 We'll fetch data from the server about Northcoders employees and store it locally.
 
 ## Challenges
