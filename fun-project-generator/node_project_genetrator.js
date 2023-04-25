@@ -35,39 +35,35 @@ function generateProject(name) {
                 `Create eslint standard config template for eslint/prettier. './eslintrc.js' `
               );
               // Create README from generator template √
-              writeFile(
-                `./${name}/README.md`,
-                `# ${name}`,
-                (err) => {
+              writeFile(`./${name}/README.md`, `# ${name}`, (err) => {
+                if (err) throw err;
+                // Create spec directory √
+                mkdir(`./${name}/spec`, (err) => {
+                  console.log('Created spec directory.');
                   if (err) throw err;
-                  // Create spec directory √
-                  mkdir(`./${name}/spec`, (err) => {
-                    console.log('Created spec directory.');
-                    if (err) throw err;
-                    // Create jest.js test suite boilerplate √
-                    copyFile(
-                      `./FUN-March-23/fun-project-generator/templates/template.index.test.js`,
-                      `./${name}/spec/index.test.js`,
-                      (err) => {
-                        if (err) throw err;
-                        console.log('Created jest.js test suite boilerplate');
-                        writeFile(
-                          `./${name}/package.json`,
-                          JSON.stringify(
-                            require('./templates/template.package-json')
-                          ),
-                          (err) => {
-                            if (err) throw err;
-                            console.log(
-                              'Setup standard config complete. \nYour project has been created! '
-                            );
-                          }
-                        );
-                      }
-                    );
-                  });
-                }
-              );
+                  // Create jest.js test suite boilerplate √
+                  copyFile(
+                    `./FUN-March-23/fun-project-generator/templates/template.index.test.js`,
+                    `./${name}/spec/index.test.js`,
+                    (err) => {
+                      if (err) throw err;
+                      console.log('Created jest.js test suite boilerplate');
+                      writeFile(
+                        `./${name}/package.json`,
+                        JSON.stringify(
+                          require('./templates/template.package-json')
+                        ),
+                        (err) => {
+                          if (err) throw err;
+                          console.log(
+                            'Setup standard config complete. \nYour project has been created! '
+                          );
+                        }
+                      );
+                    }
+                  );
+                });
+              });
             }
           );
         });
